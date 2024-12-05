@@ -1,0 +1,55 @@
+<div class="carousel-container">
+  <div class="carousel">
+    <button (click)="redirectToHome()">Salir</button>
+    <div class="buttons">
+      <button *ngIf="!prevLock" (click)="changeCharacterPrev()">Anterior</button>
+      <button *ngIf="!nextLock" (click)="changeCharacterNext()">Siguiente</button>
+    </div>    
+  </div>
+  <div class="transformations-cards">
+    <div *ngFor="let transformation of transformations()" class="card">
+      <div class="card-content">
+        <div class="image-container">
+          <img [src]="transformation.image" alt="Imagen de {{transformation.name}}" id="IMG" class="character-image" />
+        </div>
+        <div class="info">
+          <span>Name: {{ transformation.name }}</span>
+          <span>Ki: {{ transformation.ki }}</span>
+          <button (click)="OpenModal(transformation.id)">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="modal" id="modal">
+  <form [formGroup]="editForm" id="cardModal">
+    <div id="infoModal">
+      <label for="">Name:<br>
+        <input type="text" [value]="character.name" disabled>
+      </label>
+      <label for="">Race:<br>
+        <input type="text" [value]="character.race" disabled>
+      </label>
+      <label for="">Gender:<br>
+        <input type="text" [value]="character.gender" disabled>
+      </label>
+      <label for="">Affiliation:<br>
+        <input type="text" [value]="character.affiliation" disabled>
+      </label>
+      <label for="">Description:<br>
+        <input type="text" [value]="character.description" disabled>
+      </label>
+      <label for="">Max Ki:<br>
+        <input type="text" [value]="character.maxKi" disabled>
+      </label>
+      <label for="">Ki:<br>
+        <input type="text" formControlName="ki">
+      </label>
+    </div>
+    <div id="buttons">
+      <button type="button" (click)="saveKi()">Guardar</button>
+      <button type="button" (click)="closeModal()">Cerrar</button>
+    </div>
+  </form>
+</div>
