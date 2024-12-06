@@ -15,7 +15,7 @@ export class CardCharactersComponent implements OnInit {
       (data) => {
         console.log(data);
         this.originPlanet = data
-      }, e => console.log(e) 
+      }, e => console.log(e)
     )
   }
   modal: boolean = false
