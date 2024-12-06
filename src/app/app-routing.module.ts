@@ -6,7 +6,7 @@ import { CharactersComponent } from './Modules/characters/characters/characters.
 
 const routes: Routes = [
   {
-    path: "**",
+    path: "",
     component: CharactersComponent
   },
   { path: 'transformations/:name', component: TransformationComponent },

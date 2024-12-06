@@ -105,6 +105,7 @@ button{
     width: calc(100% - 20px);
 }
 #descripcion{
+    color: blue;
     border-radius: 10px;
     padding: 5px;
     text-align: justify;
